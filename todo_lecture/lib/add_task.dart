@@ -9,7 +9,7 @@ class AddTask extends StatefulWidget {
 }
 
 class _AddTaskState extends State<AddTask> {
-var todoText = TextEditingController();
+  var todoText = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +20,16 @@ var todoText = TextEditingController();
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: TextField(
             controller: todoText,
-            decoration: InputDecoration(
-              hintText: "Add task",
-            ),
+            onSubmitted: (value) {
+              widget.addTodo(todoText: todoText.text);
+              todoText.clear();
+            },
+            decoration: InputDecoration(hintText: "Add task"),
           ),
         ),
         ElevatedButton(
           onPressed: () {
             widget.addTodo(todoText: todoText.text);
-            todoText.clear();
           },
           child: Text("add"),
         ),

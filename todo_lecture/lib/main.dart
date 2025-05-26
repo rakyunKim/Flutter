@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_lecture/mainscreen.dart';
 
-void  main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp(initialTodoList: await loadData()));
 }
